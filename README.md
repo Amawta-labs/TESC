@@ -122,12 +122,17 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 ## 📚 Citation
 If you use this work, please cite:
 ```bibtex
-@article{rios2025tesc,
-  title={Deterministic Cognitive State Control in Large Language Models via Structured Outputs and Semiotic Configuration},
-  author={Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
-  journal={arXiv preprint arXiv:2509.xxxxx},
-  year={2025}
-}
+ @techreport{rios2025tesc,
+  title        = {TESC: Deterministic Cognitive State Control in LLMs via Structured Outputs and Semiotic Configuration},
+  author       = {Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
+  institution  = {AMAWTA Research},
+  number       = {TESC-TR-2025-09},
+  type         = {Technical Report},
+  year         = {2025},
+  month        = {September},
+  url          = {https://github.com/Amawta-labs/TESC},
+  note         = {Public code and benchmarks; preprint forthcoming}
+  }
 ```
 
 ## 🧩 License
