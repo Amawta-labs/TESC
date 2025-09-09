@@ -1,13 +1,24 @@
- - pycache/
-      - .venv/
-      - *.pyc
-      - lab_runs/
-      - bench_runs/
-      - *.log
-      - *.aux
-      - *.out
-      - *.bbl
-      - *.blg
-      - *.pdf
-      - *.zip
-      - .env
+  pycache/
+  .venv/
+  *.pyc
+
+  # OS/editor junk
+
+  .DS_Store
+  Thumbs.db
+
+  # Runs / artifacts
+
+  lab_runs/
+  bench_runs/
+  *.log
+  *.aux
+  *.out
+  *.bbl
+  *.blg
+  *.pdf
+  *.zip
+
+  # Env
+
+  .env
