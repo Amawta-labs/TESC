@@ -1,24 +1,29 @@
-  pycache/
-  .venv/
-  *.pyc
+# Python
+__pycache__/
+*.pyc
 
-  # OS/editor junk
+# Virtual environments
+.venv/
 
-  .DS_Store
-  Thumbs.db
+# OS / editor junk
+.DS_Store
+Thumbs.db
 
-  # Runs / artifacts
+# Runs / artifacts
+lab_runs/
+bench_runs/
+*.log
+*.zip
 
-  lab_runs/
-  bench_runs/
-  *.log
-  *.aux
-  *.out
-  *.bbl
-  *.blg
-  *.pdf
-  *.zip
+# LaTeX build artifacts
+*.aux
+*.out
+*.bbl
+*.blg
 
-  # Env
+# PDFs (si quieres versionar el paper, exceptúa main.pdf)
+*.pdf
+!main.pdf
 
-  .env
+# Env vars
+.env
