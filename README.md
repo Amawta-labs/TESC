@@ -4,7 +4,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 AMAWTA Research — Daslav Ríos Montecinos, Oscar Ríos Saldivar  
-📧 daslav@amawtalabs.com · oscar@amawtalabs.com  
+📧 daslav@amawtalabs.com 
 🌐 https://amawtalabs.com
 
 ---
