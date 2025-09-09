@@ -21,11 +21,81 @@ Headline results (current lab + benches):
 
 ---
 
+## ⏩ TL;DR for devs (utility first)
+
+- We use vendor structured outputs (`response_schema`) as a contract. With semiotic presets (system instruction, style markers, bounded temperature), behavior is stable, mode‑separable, and partly predictable — and contracts become machine‑actionable (coverage/severity = 1.00) with external evaluation to avoid circularity.
+- Same schema, consistent fields every time → CI‑ready tables and tests.
+- Fewer flips under small wording/temperature changes (stability).
+- Modes remain distinct (injectivity plateau).
+- For function‑calling: complete arguments and near‑zero extra keys.
+
+Scope note: JSON validity itself is provided by the model’s structured outputs; TESC focuses on the incremental gains above free text (coverage/completeness, stability/robustness, separability, and tool‑calling quality).
+
+### Minimal example
+
+Schema (review JSON):
+```json
+{
+  "type": "object",
+  "properties": {
+    "review": {
+      "type": "object",
+      "required": ["issues", "risks", "patch_outline", "tests", "severity"],
+      "properties": {
+        "issues":        {"type": "array", "items": {"type": "string"}},
+        "risks":         {"type": "array", "items": {"type": "string"}},
+        "patch_outline": {"type": "array", "items": {"type": "string"}},
+        "tests":         {"type": "array", "items": {"type": "string"}},
+        "severity":      {"type": "number"}
+      }
+    }
+  },
+  "required": ["review"]
+}
+```
+
+System instruction (prompt snippet):
+```
+You are a senior code reviewer. Provide actionable findings, risks,
+a patch outline, tests, and a numeric severity in [0,1].
+Return JSON with fields: issues[], risks[], patch_outline[], tests[], severity.
+```
+
+Sample output:
+```json
+{
+  "review": {
+    "issues": ["Mutable default argument on parameter 'b'"],
+    "risks": ["State leakage across calls"],
+    "patch_outline": ["Use None and initialize list inside the function"],
+    "tests": ["Call twice; lists must not alias"],
+    "severity": 0.9
+  }
+}
+```
+
+### Two commands to reproduce (review bench)
+```
+poetry run python benchmarks/run_programming_bench.py
+poetry run python benchmarks/eval_programming_bench.py bench_runs/programming_bench/<TIMESTAMP>
+```
+
+### Baseline vs Semiotic (what changes)
+
+| Metric                            | Baseline (free text) | Semiotic (schema) |
+|-----------------------------------|----------------------|-------------------|
+| Required‑field coverage           | ~0.55                | 1.00              |
+| Severity present                  | 0%                   | 100%              |
+| Extra keys rate (tool‑calling)    | n/a                  | 0.0%              |
+| Arg coverage (tool‑calling)       | n/a                  | 1.00              |
+
+Numbers above are from the included micro‑benchmarks (n=8) and the SambaNova function‑calling runs.
+
 ## 🚀 Key Results at a Glance
 
 | Metric                       | Baseline (Free text) | TESC (Structured)        |
 |-----------------------------|----------------------|--------------------------|
-| Output form                  | Free text            | JSON (100% valid)        |
+| Output form                  | Free text            | JSON (valid via `response_schema`) |
 | Audit contract validity      | 0%                   | 100%                     |
 | Mean field coverage (audit)  | 0.02                 | 1.00                     |
 | Injectivity plateau (θ≥0.98) | —                    | 1.0                      |
@@ -122,32 +192,17 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 ## 📚 Citation
 If you use this work, please cite:
 ```bibtex
- @techreport{rios2025tesc,
-  title        = {TESC: Deterministic Cognitive State Control in LLMs via Structured Outputs and Semiotic Configuration},
-  author       = {Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
-  institution  = {AMAWTA Research},
-  number       = {TESC-TR-2025-09},
-  type         = {Technical Report},
-  year         = {2025},
-  month        = {September},
-  url          = {https://github.com/Amawta-labs/TESC},
-  note         = {Public code and benchmarks; preprint forthcoming}
-  }
+@article{rios2025tesc,
+  title={Deterministic Cognitive State Control in Large Language Models via Structured Outputs and Semiotic Configuration},
+  author={Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
+  journal={arXiv preprint arXiv:2509.xxxxx},
+  year={2025}
+}
 ```
 
 ## 🧩 License
 Apache License 2.0. See [LICENSE](./LICENSE) for details.
 
-## ❤️ Acknowledgments 
-
-We thank Thunder Compute (https://www.thundercompute.com) for one‑click GPU instances that accelerated our experiments.
-SambaNova Systems (https://www.sambanova.ai) for an OpenAI‑compatible function‑calling interface and developer support
-that enabled cross‑model structured‑output validation.
-OpenAI (https://openai.com) for tools and research infrastructure that supported parts of this work.
-
- Trademarks and names remain the property of their respective owners. 
- This acknowledgment does not imply endorsement or partnership.
- 
 ## 🌐 AMAWTA Research
 A father, a son, and an AI partner exploring deterministic cognition in LLMs.  
 Independent lab · Santiago, Chile · 2025
