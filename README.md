@@ -4,7 +4,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 AMAWTA Research — Daslav Ríos Montecinos, Oscar Ríos Saldivar  
-📧 daslav@amawtalabs.com 
+📧 daslav@amawtalabs.com · oscar@amawtalabs.com  
 🌐 https://amawtalabs.com
 
 ---
@@ -96,12 +96,13 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 
 ---
 
-## 📦 Repository Structure (public subset)
+## 📦 Repository Structure
 ```
-public_repo/
+.
 ├── benchmarks/
 │   ├── data/programming_cases.jsonl
 │   ├── semio_utils.py                # reads GEMINI_API_KEY
+│   ├── sambanova_utils.py            # reads SAMBA_API_KEY (optional)
 │   ├── run_programming_bench.py      # review generation
 │   ├── eval_programming_bench.py     # review evaluation
 │   ├── run_programming_repair.py     # repair generation
