@@ -138,6 +138,16 @@ If you use this work, please cite:
 ## 🧩 License
 Apache License 2.0. See [LICENSE](./LICENSE) for details.
 
+## ❤️ Acknowledgments 
+
+We thank Thunder Compute (https://www.thundercompute.com) for one‑click GPU instances that accelerated our experiments.
+SambaNova Systems (https://www.sambanova.ai) for an OpenAI‑compatible function‑calling interface and developer support
+that enabled cross‑model structured‑output validation.
+OpenAI (https://openai.com) for tools and research infrastructure that supported parts of this work.
+
+ Trademarks and names remain the property of their respective owners. 
+ This acknowledgment does not imply endorsement or partnership.
+ 
 ## 🌐 AMAWTA Research
 A father, a son, and an AI partner exploring deterministic cognition in LLMs.  
 Independent lab · Santiago, Chile · 2025
