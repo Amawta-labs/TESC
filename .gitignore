@@ -1,0 +1,13 @@
+ - pycache/
+      - .venv/
+      - *.pyc
+      - lab_runs/
+      - bench_runs/
+      - *.log
+      - *.aux
+      - *.out
+      - *.bbl
+      - *.blg
+      - *.pdf
+      - *.zip
+      - .env
