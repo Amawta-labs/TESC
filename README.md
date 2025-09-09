@@ -13,7 +13,7 @@ AMAWTA Research — Daslav Ríos Montecinos, Oscar Ríos Saldivar
 We present empirical validation of the Theorem of Semiotic–Cognitive Equivalence (TESC), demonstrating deterministic cognitive state control in LLMs through structured outputs and semiotic configuration.
 
 Headline results (current lab + benches):
-- 100% JSON compliance (structured outputs enforced via `google.genai` response_schema)
+- JSON validity via vendor structured outputs (`response_schema`); incremental gains with TESC presets: coverage/severity = 1.00, stable behavior, and clear mode separability.
 - Injectivity plateau 1.0 for thresholds ≥ 0.98
 - Semiotic Uncertainty: Δs·Δc ≥ ℏ_sem (ℏ_sem ≈ 2×10⁻⁵) always satisfied
 - Dynamics: deterministic fraction ≈ 0.53 and SNR ≈ 14 dB (linear, held-out)
@@ -190,13 +190,18 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 ---
 
 ## 📚 Citation
-If you use this work, please cite:
+If you use this work, please cite (preprint, technical report):
 ```bibtex
-@article{rios2025tesc,
-  title={Deterministic Cognitive State Control in Large Language Models via Structured Outputs and Semiotic Configuration},
-  author={Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
-  journal={arXiv preprint arXiv:2509.xxxxx},
-  year={2025}
+@techreport{rios2025tesc,
+  title        = {TESC: Deterministic Cognitive State Control in LLMs via Structured Outputs and Semiotic Configuration},
+  author       = {Ríos Montecinos, Daslav and Ríos Saldivar, Oscar},
+  institution  = {AMAWTA Research},
+  number       = {TESC-TR-2025-09},
+  type         = {Technical Report},
+  year         = {2025},
+  month        = {September},
+  url          = {https://github.com/Amawta-labs/TESC},
+  note         = {Public code and benchmarks; preprint forthcoming}
 }
 ```
 
