@@ -21,7 +21,7 @@ Headline results (current lab + benches):
 
 ---
 
-## ⏩ TL;DR for devs (utility first)
+## TL;DR for devs (utility first)
 
 - We use vendor structured outputs (`response_schema`) as a contract. With semiotic presets (system instruction, style markers, bounded temperature), behavior is stable, mode‑separable, and partly predictable — and contracts become machine‑actionable (coverage/severity = 1.00) with external evaluation to avoid circularity.
 - Same schema, consistent fields every time → CI‑ready tables and tests.
