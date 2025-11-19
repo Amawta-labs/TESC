@@ -1,15 +1,15 @@
-# 🧭 TESC: Deterministic Cognitive State Control in LLMs
+# TESC: Deterministic Cognitive State Control in LLMs
 
-[![arXiv](https://img.shields.io/badge/arXiv-Preprint-B31B1B.svg)](https://arxiv.org/)  
+
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 AMAWTA Research — Daslav Ríos Montecinos, Oscar Ríos Saldivar  
-📧 daslav@amawtalabs.com · oscar@amawtalabs.com  
-🌐 https://amawtalabs.com
+daslav@amawtalabs.com · oscar@amawtalabs.com  
+ https://amawtalabs.com
 
 ---
 
-## 📌 Abstract
+## Abstract
 We present empirical validation of the Theorem of Semiotic–Cognitive Equivalence (TESC), demonstrating deterministic cognitive state control in LLMs through structured outputs and semiotic configuration.
 
 Headline results (current lab + benches):
@@ -91,7 +91,7 @@ poetry run python benchmarks/eval_programming_bench.py bench_runs/programming_be
 
 Numbers above are from the included micro‑benchmarks (n=8) and the SambaNova function‑calling runs.
 
-## 🚀 Key Results at a Glance
+## Key Results at a Glance
 
 | Metric                       | Baseline (Free text) | TESC (Structured)        |
 |-----------------------------|----------------------|--------------------------|
@@ -105,7 +105,7 @@ Numbers above are from the included micro‑benchmarks (n=8) and the SambaNova f
 
 ---
 
-## 🔬 Methods Overview
+## Methods Overview
 - Semiotic Configuration (S = ⟨instruction, schema, markers, temperature⟩)
 - Generation via Gemini 2.5 Flash with enforced JSON schemas
 - Evaluation with external embeddings (Qwen3 0.6B / ST) to avoid circularity
@@ -113,7 +113,7 @@ Numbers above are from the included micro‑benchmarks (n=8) and the SambaNova f
 
 ---
 
-## 📈 Benchmarks (this repo)
+## Benchmarks (this repo)
 
 ### Programming Pitfalls (n=8 canonical cases)
 - Mutable default args; Off-by-one; Resource leaks; Bare excepts; Shallow copy; SQL injection; Path traversal; Float equality
@@ -127,7 +127,7 @@ Numbers above are from the included micro‑benchmarks (n=8) and the SambaNova f
 
 ---
 
-## ⚡ Quickstart
+## Quickstart
 
 1) Install dependencies (Poetry)
 ```
@@ -166,7 +166,7 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 
 ---
 
-## 📦 Repository Structure
+## Repository Structure
 ```
 .
 ├── benchmarks/
@@ -189,7 +189,7 @@ poetry run python benchmarks/tesc_dynamics_eval.py lab_runs/<RUN_ID>
 
 ---
 
-## 📚 Citation
+## Citation
 If you use this work, please cite (preprint, technical report):
 ```bibtex
 @techreport{rios2025tesc,
@@ -205,14 +205,14 @@ If you use this work, please cite (preprint, technical report):
 }
 ```
 
-## 🧩 License
+## License
 Apache License 2.0. See [LICENSE](./LICENSE) for details.
 
-## 🌐 AMAWTA Research
+## MAWTA Research
 A father, a son, and an AI partner exploring deterministic cognition in LLMs.  
 Independent lab · Santiago, Chile · 2025
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 We thank:
 - [Thunder Compute](https://www.thundercompute.com) for one‑click GPU instances that accelerated our experiments.
